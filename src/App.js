@@ -13,6 +13,8 @@ import StudentRegistration from "./pages/StudentRegistration";
 import StudentList from "./pages/StudentList";
 import StudentAttendance from "./pages/StudentAttendance";
 
+import AddCourse from "./pages/AddCourse";
+
 function App() {
   return (
     <BrowserRouter>
@@ -54,6 +56,10 @@ function App() {
           element={<StudentAttendance />}
         />
 
+        <Route
+          path="/add-course"
+          element={<AddCourse />}
+        />
       </Routes>
 
     </BrowserRouter>

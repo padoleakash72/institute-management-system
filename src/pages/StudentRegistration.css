@@ -1,74 +1,162 @@
-.registration-container{
-    background:#f5f7fb;
-    min-height:100vh;
-    padding:30px;
+.registration-container {
+    background: #f5f7fb;
+    min-height: 100vh;
+    padding: 30px 15px;
 }
 
-.registration-card{
-    background:#fff;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+.registration-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-.page-title{
-    color:#1e3a8a;
-    font-weight:700;
-    margin-bottom:20px;
+.page-title {
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-.photo-card{
-    border:2px dashed #d1d5db;
-    border-radius:12px;
-    padding:15px;
-    background:#fafafa;
+.photo-card {
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    padding: 15px;
+    background: #fafafa;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
-    height:70%;
+    min-height: 320px;
+    width:100%;
 }
 
-.student-photo{
-    width:140px;
-    height:140px;
-    object-fit:cover;
-    border-radius:10px;
-    border:2px solid #1e3a8a;
+.photo-card input[type="file"] {
+    margin-top: 15px;
+    width:100%;
 }
 
-.photo-placeholder{
-    width:140px;
-    height:140px;
-    background:#e5e7eb;
-    border-radius:10px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:0 auto;
-    color:#6b7280;
+.student-photo {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #1e3a8a;
 }
 
-.section-title{
-    font-size:21px;
-    font-weight:600;
-    color:#1e3a8a;
-    margin-bottom:15px;
+.photo-placeholder {
+    width: 140px;
+    height: 140px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: #6b7280;
 }
 
-.form-label{
-    font-weight:600;
+.section-title {
+    font-size: 21px;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 15px;
 }
+
+.form-label {
+    font-weight: 600;
+}
+
 .form-control,
 .form-select {
     height: 45px;
     border-radius: 8px;
 }
 
+textarea.form-control {
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+}
+
 .form-control:focus,
 .form-select:focus {
     border-color: #1e3a8a;
     box-shadow: 0 0 0 0.15rem rgba(30, 58, 138, 0.2);
+}
+
+@media (max-width:991px) {
+
+    .registration-card {
+
+        padding: 20px;
+
+    }
+
+    .photo-card {
+        min-height: auto;
+    }
+
+    .photo-card {
+
+        margin-bottom: 25px;
+
+    }
+
+    .page-title {
+
+        text-align: center;
+
+    }
+
+    .section-title {
+
+        text-align: left;
+
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .registration-container {
+
+        padding: 15px;
+
+    }
+
+    .registration-card {
+
+        padding: 15px;
+
+    }
+
+    .student-photo,
+    .photo-placeholder {
+
+        width: 120px;
+        height: 120px;
+
+    }
+
+    .page-title {
+
+        font-size: 24px;
+
+    }
+
+    .section-title {
+
+        font-size: 19px;
+
+    }
+
+    .form-control,
+    .form-select {
+
+        height: 42px;
+
+    }
+
 }

@@ -1,0 +1,77 @@
+.student-list-container {
+    background: #f5f7fb;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.student-list-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.page-title {
+    color: #1e3a8a;
+    font-weight: 700;
+    margin: 0;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #1e3a8a;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table tbody td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-warning,
+.btn-danger {
+    min-width: 70px;
+}
+
+.form-control {
+    height: 45px;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 0.15rem rgba(30, 58, 138, 0.2);
+}
+
+.student-img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+@media (max-width: 768px) {
+
+    .student-list-container {
+        padding: 15px;
+    }
+
+    .student-list-card {
+        padding: 15px;
+    }
+
+    .page-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

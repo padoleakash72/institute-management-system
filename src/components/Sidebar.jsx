@@ -17,6 +17,7 @@ import "./Sidebar.css";
 function Sidebar() {
     const navigate = useNavigate();
     const [studentOpen, setStudentOpen] = useState(false);
+    const [courseOpen, setCourseOpen] = useState(false);
 
     return (
         <div className="sidebar">
@@ -81,10 +82,39 @@ function Sidebar() {
                     Teachers
                 </li>
 
-                <li>
+                <li
+                    onClick={() => setCourseOpen(!courseOpen)}
+                    style={{ cursor: "pointer" }}
+                >
                     <MdMenuBook className="icon" />
-                    Courses
+
+                    <span style={{ flex: 1 }}>
+                        Courses
+                    </span>
+
+                    {
+                        courseOpen
+                            ? <MdExpandLess />
+                            : <MdExpandMore />
+                    }
+
                 </li>
+
+                {
+                    courseOpen && (
+
+                        <ul className="submenu">
+
+                            <li
+                                onClick={() => navigate("/add-course")}
+                            >
+                                Add Course
+                            </li>
+
+                        </ul>
+
+                    )
+                }
 
                 <li>
                     <MdPayments className="icon" />

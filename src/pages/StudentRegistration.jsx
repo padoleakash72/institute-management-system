@@ -47,6 +47,7 @@ function StudentRegistration() {
 
     });
 
+    const [students, setStudents] = useState([]);
     const [errors, setErrors] = useState({});
 
     const handlePhotoChange = (e) => {
@@ -61,7 +62,7 @@ function StudentRegistration() {
 
         setStudent({
 
-            ...student,
+            ...student, 
 
             [name]: value
 
@@ -140,10 +141,8 @@ function StudentRegistration() {
 
         }
 
-        if (!student.course) {
-
-            newErrors.course = "Please select course";
-
+        if (!student.course.trim()) {
+            newErrors.course = "Please Select Course";
         }
 
         if (!student.parentMobile.trim()) {
@@ -170,14 +169,20 @@ function StudentRegistration() {
 
         e.preventDefault();
 
-        if (validate()) {
-
-            alert("Student Registered Successfully");
-
-            console.log(student);
-
+        if (!validate()) {
+            return;
         }
 
+        const newStudent = {
+            ...student,
+            id: Date.now(),
+        };
+
+        setStudents([...students, newStudent]);
+
+        console.log(newStudent);
+
+        alert("Student Registered Successfully");
     };
     return (
 
@@ -198,7 +203,7 @@ function StudentRegistration() {
 
                         {/* Photo */}
 
-                        <div className="col-md-2 text-center">
+                        <div className="col-lg-3 col-md-4 col-12 text-center mb-4">
 
                             <div className="photo-card">
                                 <h4 className="section-title">
@@ -235,7 +240,7 @@ function StudentRegistration() {
 
                         {/* Personal Details */}
 
-                        <div className="col-md-10">
+                        <div className="col-lg-9 col-md-8 col-12">
 
                             <h4 className="section-title">
                                 Personal Details
@@ -380,7 +385,12 @@ function StudentRegistration() {
                                         Gender <span className="text-danger">*</span>
                                     </label>
 
-                                    <select className="form-select">
+                                    <select
+                                        className="form-select"
+                                        name="gender"
+                                        value={student.gender}
+                                        onChange={handleChange}
+                                    >
 
                                         <option value="">
                                             Select Gender
@@ -399,6 +409,7 @@ function StudentRegistration() {
                                         </option>
 
                                     </select>
+
                                     {
                                         errors.gender &&
                                         <small className="text-danger">
@@ -539,7 +550,7 @@ function StudentRegistration() {
 
                     <div className="row">
 
-                        <div className="col-md-12 mb-3">
+                        <div className="col-lg-3 col-md-6 col-12 mb-3">
 
                             <label className="form-label">
                                 Address
@@ -657,29 +668,35 @@ function StudentRegistration() {
 
                     <div className="row">
 
-                        <div className="col-md-4 mb-3">
+                        <div className="col-lg-4 col-md-6 col-12 mb-3">
 
                             <label className="form-label">
                                 Course Name <span className="text-danger">*</span>
                             </label>
 
-                            <select className="form-select">
+                            <select
+                                className="form-select"
+                                name="course"
+                                value={student.course}
+                                onChange={handleChange}
+                            >
 
                                 <option value="">
                                     Select Course
                                 </option>
 
-                                <option>Java Full Stack</option>
-                                <option>MERN Stack</option>
-                                <option>Python Full Stack</option>
-                                <option>Data Science</option>
-                                <option>UI / UX Design</option>
-                                <option>Digital Marketing</option>
-                                <option>Tally with GST</option>
-                                <option>MS-CIT</option>
-                                <option>Graphic Design</option>
+                                <option value="Java Full Stack">Java Full Stack</option>
+                                <option value="MERN Stack">MERN Stack</option>
+                                <option value="Python Full Stack">Python Full Stack</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="UI / UX Design">UI / UX Design</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Tally with GST">Tally with GST</option>
+                                <option value="MS-CIT">MS-CIT</option>
+                                <option value="Graphic Design">Graphic Design</option>
 
                             </select>
+
                             {
                                 errors.course &&
                                 <small className="text-danger">
@@ -857,7 +874,7 @@ function StudentRegistration() {
 
                     <div className="row">
 
-                        <div className="col-md-4 mb-3">
+                        <div className="col-lg-4 col-md-6 col-12 mb-3">
 
                             <label className="form-label">
                                 Father's Name <span className="text-danger">*</span>
@@ -1014,7 +1031,7 @@ function StudentRegistration() {
 
                     <div className="row">
 
-                        <div className="col-md-4 mb-3">
+                        <div className="col-lg-4 col-md-6 col-12 mb-3">
 
                             <label className="form-label">
                                 Total Course Fees <span className="text-danger">*</span>
@@ -1166,7 +1183,7 @@ function StudentRegistration() {
 
                     <div className="row">
 
-                        <div className="col-md-4 mb-3">
+                        <div className="col-lg-4 col-md-6 col-12 mb-3">
 
                             <label className="form-label">
                                 Aadhaar Card
@@ -1240,7 +1257,7 @@ function StudentRegistration() {
 
                     <hr className="my-4" />
 
-                    <div className="d-flex justify-content-end gap-3">
+                    <div className="d-flex justify-content-end flex-wrap gap-2 mt-4">
 
                         <button
                             type="reset"
